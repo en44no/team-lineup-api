@@ -18,9 +18,19 @@ async function getPlayers(req, res) {
   res.status(200).send({ allPlayers });
 }
 
+async function deletePlayers(req, res) {
+  const allPlayers = await Players.find().lean().exec();
+  console.log(req.body._id);
+  const player = await Players.findById(req.body._id);
+  console.log(player);
+  /*allPlayers.splice(player);*/
+  res.status(200).send({ allPlayers });
+}
+
 const functions = {
   addPlayers,
   getPlayers,
+  deletePlayers,
 };
 
 module.exports = functions;
