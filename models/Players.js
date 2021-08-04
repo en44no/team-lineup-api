@@ -9,9 +9,9 @@ const PlayersSchema = Schema(
     position: String,
   },
   {
+    versionKey: false,
     timestamps: true,
   }
 );
 
 module.exports = mongoose.model('Players', PlayersSchema);
-/**/
